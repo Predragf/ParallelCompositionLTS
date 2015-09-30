@@ -1,6 +1,7 @@
 require("./arrayoverrides.js");
-require("./lts.js");
-require("./ltsparallelcomposition.js");
+var LTS = require("./lts.js").LTS;
+var Transition = require("./lts.js").Transition;
+var ParallelComposition = require("./ltsparallelcomposition.js").ParallelComposition;
 
 function main(){
 
@@ -16,7 +17,7 @@ function main(){
 
 	var opt = parallelComposition.optionalParallelSynchronization(lts1, lts2)
 
-	var pComp = parallelComposition.parallelCompositionWithSynchronization()(lts1, lts2, ["a","b"]);
+	var pComp = parallelComposition.parallelCompositionWithSynchronization(lts1, lts2, ["a","b"]);
 	
 	console.log("First LTS: \n")
 	console.log(lts1);
