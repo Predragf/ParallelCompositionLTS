@@ -4,7 +4,7 @@ var Transition = function (source, label, sink) {
 	this.sink = sink;
 }
 
-LTS = function (_initial, _states, _transitions) {
+var LTS = function (_initial, _states, _transitions) {
 	this.initial = _initial || "";
 	this.states = _states || [];
 	this.transitions = _transitions || [];
