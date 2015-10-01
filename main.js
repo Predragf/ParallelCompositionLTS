@@ -2,6 +2,7 @@ require("./arrayoverrides.js");
 var LTS = require("./lts.js").LTS;
 var Transition = require("./lts.js").Transition;
 var ParallelComposition = require("./ltsparallelcomposition.js").ParallelComposition;
+var LTS2UPPAAL = require("./lts2uppaal.js").LTS2UPPAAL;
 
 function main(){
 
@@ -18,6 +19,9 @@ function main(){
 	var opt = parallelComposition.optionalParallelSynchronization(lts1, lts2)
 
 	var pComp = parallelComposition.parallelCompositionWithSynchronization(lts1, lts2, ["a","b"]);
+
+	var lts2Uppaal = new LTS2UPPAAL();
+
 	
 	console.log("First LTS: \n")
 	console.log(lts1);
@@ -32,6 +36,8 @@ function main(){
 	console.log("--------------------------")
 	console.log("Optional parallel composition result: \n")
 	console.log(opt);
+
+	console.log(lts2Uppaal.exportToUPPAALModel(pComp));
 }
 
 main();
